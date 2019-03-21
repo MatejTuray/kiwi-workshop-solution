@@ -35,9 +35,12 @@ def write_excel_dump(rows, headers):
     df = pandas.DataFrame(rows, columns=headers)
     print(df)
     df.to_excel("output.xlsx")
+    print_separator()
     print("\n")
     print(F"Excel file saved in {os.path.dirname(os.path.abspath(__file__))}")
 
+def print_separator():
+    print("----------------------------------------------------------------------------------------")
 
 if len(sys.argv) == 2 and sys.argv[1] == "--full":
     #
@@ -46,14 +49,14 @@ if len(sys.argv) == 2 and sys.argv[1] == "--full":
     rows = []
     for el in clean_data:
             rows.append(el.row)
-    print("----------------------------------------------------------------------------------------")
+    print_separator()
     write_excel_dump(rows, ["iata", "name", "icao", "lat", "lon", "city_name"]);
 
 elif len(sys.argv) == 2 and sys.argv[1] == "--help":
     #
     # Show help
     #
-    print("----------------------------------------------------------------------------")
+    print_separator()
     print("Ways how to run the program\n")
     print("You can specify multiple options in the program:\n")
     print("--help - print help message")
@@ -79,7 +82,7 @@ elif len(sys.argv) >= 2 and ("--full" or "--help") not in sys.argv:
         for j in headers:
             helper.append(el.return_prop(sys.argv[headers.index(j) + 1].replace("--", "")))
         rows.append(helper)
-    print("----------------------------------------------------------------------------------------")
+    print_separator()
     write_excel_dump(rows, headers)
 
 else:
@@ -90,5 +93,5 @@ else:
     headers = ["iata", "name"]
     for el in clean_data:
         rows.append([el.iata, el.names])
-    print("----------------------------------------------------------------------------------------")
+    print_separator()
     write_excel_dump(rows, headers);
