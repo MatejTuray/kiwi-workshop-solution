@@ -64,7 +64,11 @@ elif len(sys.argv) == 2 and sys.argv[1] == "--help":
     print("--coords - coordinates of each airport")
     print("--iata - IATA codes")
     print("--names - name of the airport")
+    print("--icao - ICAO codes")
+    print("--lat - latitude as a separate column")
+    print("--lon - latitude as a separate column")
     print("--full - print every detail from each airport\n")
+    print("You can mix and match cmd line arguments to create your own table")  
     print("When run without any option, only name and IATA code of airport is provided")
 
 elif len(sys.argv) >= 2 and ("--full" or "--help") not in sys.argv:
