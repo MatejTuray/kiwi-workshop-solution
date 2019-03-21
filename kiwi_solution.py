@@ -49,7 +49,7 @@ if len(sys.argv) == 2 and sys.argv[1] == "--full":
     print("----------------------------------------------------------------------------------------")
     write_excel_dump(rows, ["iata", "name", "icao", "lat", "lon", "city_name"]);
 
-elif len(sys.argv) == 2 and sys.argv[1] == "help":
+elif len(sys.argv) == 2 and sys.argv[1] == "--help":
     #
     # Show help
     #
