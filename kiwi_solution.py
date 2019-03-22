@@ -33,7 +33,7 @@ def cli():
             for el in clean_data:
                 rows.append(el.row)
             print_separator()
-            write_excel_dump(rows, ["iata", "name", "icao", "lat", "lon", "city_name"])
+            write_excel_dump(rows, ["iata", "name", "icao", "lat", "lon", "city_name"])8
 
         elif len(sys.argv) == 2 and sys.argv[1] == "--help":
             # Show help
@@ -76,7 +76,7 @@ def cli():
                 rows.append([el.iata, el.names])
             print_separator()
             write_excel_dump(rows, headers)
-    except Exception  as e:
+    except Exception as e:
         logging.error(traceback.format_exc())
         print("Something went wrong or you provided invalid flags, try running the program with --help flag to learn"
               " more")
